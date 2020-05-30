@@ -27,14 +27,15 @@ public class Main {
         listProgrammingBook.add(javascriptProgrammingBook);
 
         // Deploy Strategy
-        BookManager searchByName = new SearchByName(listProgrammingBook, "Java ALl in 1");
-        searchByName.algorithm();
-
+        BookManager searchByName   = new SearchByName(listProgrammingBook, "Java ALl in 1");
         BookManager searchByAuthor = new SearchByAuthor(listProgrammingBook, "RedT");
-        searchByAuthor.algorithm();
+        BookManager deleteByName   = new DeleteByName(listProgrammingBook, "Java ALl in 1");
 
-        BookManager deleteByName = new DeleteByName(listProgrammingBook, "Java ALl in 1");
-        deleteByName.algorithm();
+        BookManager[] algorithm = {searchByName, searchByAuthor, deleteByName};
+
+        for (BookManager bookManager: algorithm){
+            bookManager.algorithm();
+        }
 
         System.out.println("List after deletion:");
         show(listProgrammingBook);
